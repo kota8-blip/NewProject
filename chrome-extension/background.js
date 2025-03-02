@@ -39,7 +39,11 @@ async function appendToSheet(text, column) {
     console.log("取得したトークン:", token);
 
     const spreadsheetId = "16k0vWG3l6HO4F-WBbGaVJG_b3M-b2Srr4QBIBLxOgo0";
-    const range = `Sheet1!${column}2`;
+
+    const nextRow = await getNextRow(spreadsheetId,column);
+    console.log("次に追加する行番号:", nextRow);
+
+    const range = `${column}${nextRow}`;
 
     const response = await fetch(
       `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${range}:append?valueInputOption=RAW`,
@@ -76,4 +80,25 @@ async function getAuthToken() {
         }
       });
     });
+  }
+
+  async function getNextRow(spreadsheetId, column) {
+    const token = await getAuthToken();
+
+    const response = await fetch(
+      `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${column}:${column}?majorDimension=COLUMNS`,
+      {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+
+    if (!response.ok) {
+      throw new Error(`行取得エラー: ${await response.text()}`);
+    }
+
+    const data = await response.json();
+    return (data.values && data.values[0]) ? data.values[0].length + 1: 2;
   }
