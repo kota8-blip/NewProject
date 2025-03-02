@@ -5,7 +5,25 @@ document.addEventListener('mouseup', () => {
   console.log("取得した単語:", selectedText);
 
   if (selectedText) {
-    chrome.runtime.sendMessage({ type: "SELECTED_TEXT", text: selectedText});
+    let count = localStorage.getItem(selectedText) || 0;
+    console.log("Current count", count);
+    count++;
+    localStorage.setItem(selectedText, count);
+
+    console.log(`${selectedText}の選択回数: ${count}`);
+
+    let column = "";
+    if (count === 1) {
+      column = "A";
+    } else if (count === 2) {
+      column = "B";
+    } else if (count === 3) {
+      column = "C";
+    }
+
+    console.log(`単語 '${selectedText}' の列: ${column}`);
+    
+    chrome.runtime.sendMessage({ type: "SELECTED_TEXT", text: selectedText, count: count, column: column});
   } else {
     console.log("単語が選択されていません");
   }

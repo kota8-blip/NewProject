@@ -5,7 +5,16 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     if (message.type === "SELECTED_TEXT" && message.text) {
       console.log("受け取った単語:", message.text);
 
-      appendToSheet(message.text)
+      let column = "";
+      if (message.count === 1) {
+        column = "A";
+      } else if (message.count === 2) {
+        column = "B";
+      } else if (message.count === 3) {
+        column = "C";
+      }
+
+      appendToSheet(message.text, column)
       .then(() => {
         console.log("スプレッドシートに反映しました");
       })
@@ -24,13 +33,13 @@ chrome.runtime.onInstalled.addListener(() => {
   });
 });
 
-async function appendToSheet(text) {
+async function appendToSheet(text, column) {
   try {
     const token = await getAuthToken();
     console.log("取得したトークン:", token);
 
     const spreadsheetId = "16k0vWG3l6HO4F-WBbGaVJG_b3M-b2Srr4QBIBLxOgo0";
-    const range = "Sheet1!A:A";
+    const range = `Sheet1!${column}2`;
 
     const response = await fetch(
       `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${range}:append?valueInputOption=RAW`,
