@@ -1,0 +1,42 @@
+{
+  "manifest_version": 3,
+  "name": "English Vocabulary",
+  "description": "Add selected vocabulary to Google Sheets",
+  "version": "1.0",
+  "permissions": [
+    "activeTab",
+    "identity",
+    "identity.email",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://www.googleapis.com/*"
+  ],
+  "oauth2": {
+    "client_id": "862535538626-l90urd2ud3jabbk0q8bbms6gcrtmrpqe.apps.googleusercontent.com",
+    "scopes": [
+      "https://www.googleapis.com/auth/spreadsheets"
+    ]
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ],
+  "action": {
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}

@@ -1,0 +1,44 @@
+credentials.json
+.env
+*.log
+*.bak
+.bash_history
+.bash_profile
+.gitconfig
+# OS関連
+*.log
+*.bak
+*.swp
+*.swo
+
+# システムファイル
+Thumbs.db
+ehthumbs.db
+
+# IDE関連
+.vscode/
+.idea/
+*.iml
+
+# Node関連
+node_modules/
+
+# システム関連ファイル
+*.bak
+*.swp
+Thumbs.db
+Desktop.ini
+AppData/
+Documents/My Music/
+Documents/My Pictures/
+Documents/My Videos/
+NTUSER.DAT
+
+# IDE設定ファイル
+.vscode/
+.idea/
+
+# その他不要なファイル
+node_modules/
+*.log
+*.env
