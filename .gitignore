@@ -42,3 +42,8 @@ NTUSER.DAT
 node_modules/
 *.log
 *.env
+
+# 環境関連
+myenv/
+venv/
+__pycache__/

@@ -12,6 +12,20 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
         column = "B";
       } else if (message.count === 3) {
         column = "C";
+      } else if (message.count === 4) {
+        column = "D";
+      } else if (message.count === 5) {
+        column = "E";
+      } else if (message.count === 6) {
+        column = "F";
+      } else if (message.count === 7) {
+        column = "G";
+      } else if (message.count === 8) {
+        column = "H";
+      } else if (message.count === 9) {
+        column = "I";
+      } else if (message.count === 10) {
+        column = "J";
       }
 
       appendToSheet(message.text, column)

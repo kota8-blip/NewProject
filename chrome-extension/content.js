@@ -19,6 +19,20 @@ document.addEventListener('mouseup', () => {
       column = "B";
     } else if (count === 3) {
       column = "C";
+    } else if (count === 4) {
+      column = "D";
+    } else if (count === 5) {
+      column = "E";
+    } else if (count === 6) {
+      column = "F";
+    } else if (count === 7) {
+      column = "G";
+    } else if (count === 8) {
+      column = "H";
+    } else if (count === 9) {
+      column = "I";
+    } else if (count === 10) {
+      column = "J";
     }
 
     console.log(`単語 '${selectedText}' の列: ${column}`);
