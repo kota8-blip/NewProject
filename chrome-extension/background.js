@@ -28,6 +28,10 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
         column = "J";
       }
 
+      if (message.count > 1) {
+        deleteFromSheet(message.text, "A");
+      }
+
       appendToSheet(message.text, column)
       .then(() => {
         console.log("スプレッドシートに反映しました");
@@ -37,6 +41,63 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
       });
     }
 });
+
+async function deleteFromSheet(text, column) {
+  try {
+    const token = await getAuthToken();
+    console.log(`削除処理: ${column}列から"${text}を削除`);
+
+    const spreadsheetId = "16k0vWG3l6HO4F-WBbGaVJG_b3M-b2Srr4QBIBLxOgo0";
+
+    const response = await fetch(
+      `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${column}:${column}?majorDimension=COLUMNS`,
+      {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+
+    if (!response.ok){
+      throw new Error(`行取得エラー: ${await response.text()}`);
+    }
+
+    const data = await response.json();
+    const values = data.values ? data.values[0] : [];
+    const rowIndex = values.indexOf(text);
+
+    if (rowIndex === -1) {
+      console.log("削除対象の単語が見つかりません");
+      return;
+    }
+
+    const range = `${column}${rowIndex + 1}`;
+    console.log(`削除対象のセル範囲: ${range}`);
+
+    const deleteResponse = await fetch(
+      `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${range}?valueInputOption=RAW`,
+      {
+        method: "PUT",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          values: [[""]],
+        }),
+      }
+    );
+
+    if (!deleteResponse.ok) {
+      throw new Error(`削除エラー: ${await deleteResponse.text()}`);
+    }
+
+    console.log(`"${text}"を ${range}から削除しました`);
+  } catch (error) {
+    console.error(error);
+  }  
+}
 
 chrome.runtime.onInstalled.addListener(() => {
   getAuthToken().then((token) => {
