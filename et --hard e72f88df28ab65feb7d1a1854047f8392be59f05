@@ -1,0 +1,79 @@
+[33mcommit e72f88df28ab65feb7d1a1854047f8392be59f05[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: Your Name <your_email@example.com>
+Date:   Tue Mar 4 23:04:26 2025 +0900
+
+    無駄なファイル削除
+
+[33mcommit abaf2c285e6fb0c6f9e1faf5704dc365c42d3c50[m
+Author: Your Name <your_email@example.com>
+Date:   Tue Mar 4 22:53:23 2025 +0900
+
+    無駄なファイル削除
+
+[33mcommit 824369ceb32ca8cdaca4467beb9d7d40bd1397be[m
+Author: Your Name <your_email@example.com>
+Date:   Tue Mar 4 22:51:35 2025 +0900
+
+    無駄なファイル削除
+
+[33mcommit ed0878357038f75c69862a18f091b606fca3fbab[m
+Author: Your Name <your_email@example.com>
+Date:   Tue Mar 4 22:47:34 2025 +0900
+
+    Update .gitignore and modify background.js, content.js
+
+[33mcommit 549ff1b463faefce216b696a03d909bfcf835a29[m
+Merge: 37b981d 8efbb02
+Author: Your Name <your_email@example.com>
+Date:   Tue Mar 4 22:43:47 2025 +0900
+
+    Merge branch 'main' of https://github.com/kota8-blip/chrome-extension-project
+    マージ完了
+
+[33mcommit 8efbb027175ceeef4528a2d0c1aa2422b7c604b4[m
+Author: kota8-blip <hattori0739@gmail.com>
+Date:   Tue Mar 4 22:36:27 2025 +0900
+
+    Initial commit
+
+[33mcommit 37b981d867f628cb161dde8c73bd47c04370086b[m[33m ([m[1;31morigin/master[m[33m)[m
+Author: Your Name <your_email@example.com>
+Date:   Sun Mar 2 23:35:09 2025 +0900
+
+    複数回選択列変更完了
+
+[33mcommit 2f3ba3301999aac09b6bda1143e174a448e88cb6[m
+Author: Your Name <your_email@example.com>
+Date:   Sun Mar 2 18:57:44 2025 +0900
+
+    複数回選択改善途中
+
+[33mcommit b71ce869914c691fe7031a62f64e6396d81ae9c0[m
+Author: Your Name <your_email@example.com>
+Date:   Sun Mar 2 16:55:22 2025 +0900
+
+    適用するサイトの修正完了
+
+[33mcommit d5948e04221c88b1374bcee2700759dd43ee3d6a[m
+Author: Your Name <your_email@example.com>
+Date:   Sun Mar 2 14:01:47 2025 +0900
+
+    Add chrome-extension-project as regular folder
+
+[33mcommit 18969af500d9ed963c983286a5a8130afb6e6ba1[m
+Author: Your Name <your_email@example.com>
+Date:   Sun Mar 2 14:01:36 2025 +0900
+
+    Remove chrome-extension-project as submodule
+
+[33mcommit 27b0507d56a6280dce8eee2f38bee8469438fcf7[m
+Author: Your Name <your_email@example.com>
+Date:   Sun Mar 2 14:00:53 2025 +0900
+
+    既存のコードを追加
+
+[33mcommit 276c62188d061a9f30e827b863dd4a30bf66804a[m
+Author: Your Name <your_email@example.com>
+Date:   Sun Mar 2 14:00:28 2025 +0900
+
+    サブリポジトリを削除

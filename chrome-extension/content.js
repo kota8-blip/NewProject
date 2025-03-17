@@ -37,8 +37,10 @@ document.addEventListener('mouseup', () => {
 
     console.log(`単語 '${selectedText}' の列: ${column}`);
     
+  if(chrome.runtime && chrome.runtime.sendMessage) {
     chrome.runtime.sendMessage({ type: "SELECTED_TEXT", text: selectedText, count: count, column: column});
   } else {
     console.log("単語が選択されていません");
+  }
   }
 });
