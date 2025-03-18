@@ -6,6 +6,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
       console.log("受け取った単語:", message.text);
 
       let column = "";
+
       if (message.count === 1) {
         column = "A";
       } else if (message.count === 2) {
@@ -28,8 +29,32 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
         column = "J";
       }
 
-      if (message.count > 1) {
+      if (message.count === 2) {
         deleteFromSheet(message.text, "A");
+      }
+      else if (message.count === 3) {
+        deleteFromSheet(message.text, "B");
+      }
+      else if (message.count === 4) {
+        deleteFromSheet(message.text, "C");
+      }
+      else if (message.count === 5) {
+        deleteFromSheet(message.text, "D");
+      }
+      else if (message.count === 6) {
+        deleteFromSheet(message.text, "E");
+      }
+      else if (message.count === 7) {
+        deleteFromSheet(message.text, "F");
+      }
+      else if (message.count === 8) {
+        deleteFromSheet(message.text, "G");
+      }
+      else if (message.count === 9) {
+        deleteFromSheet(message.text, "H");
+      }
+      else if (message.count === 10) {
+        deleteFromSheet(message.text, "I");
       }
 
       appendToSheet(message.text, column)
